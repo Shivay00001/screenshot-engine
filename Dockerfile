@@ -4,5 +4,6 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 ENV PYTHONUNBUFFERED=1
-EXPOSE 8000
-CMD ["python", "main.py"]
+# CLI tool: pass a URL and flags, e.g. docker run <img> https://example.com --fullpage
+ENTRYPOINT ["python", "screenshot_engine.py"]
+CMD ["--help"]
